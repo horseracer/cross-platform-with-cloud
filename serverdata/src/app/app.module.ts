@@ -9,7 +9,8 @@ import { ListDataPage  } from '../pages/list-data/list-data';
   declarations: [
     MyApp,
     Page1,
-    Page2
+    Page2,
+    ListDataPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -18,7 +19,8 @@ import { ListDataPage  } from '../pages/list-data/list-data';
   entryComponents: [
     MyApp,
     Page1,
-    Page2
+    Page2,
+    ListDataPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
