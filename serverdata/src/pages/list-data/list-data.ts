@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Http } from '@angular/http';
 import { NavController } from 'ionic-angular';
 
 /*
@@ -13,10 +14,16 @@ import { NavController } from 'ionic-angular';
 })
 export class ListDataPage {
 
-  constructor(public navCtrl: NavController) {}
+  public data;
 
-  ionViewDidLoad() {
+  constructor(public navCtrl: NavController, private http: Http) {}
+
+  ionViewDidEnter() {
     console.log('Hello ListDataPage Page');
+    this.http.get("http://webxapi.azurewebsites.net/api/products").subscribe(nxt => {
+      this.data = nxt.json();
+    }, err => console.log(err),
+    () => {});
   }
 
 }
