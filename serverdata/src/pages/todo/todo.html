@@ -13,17 +13,17 @@
 
     <ion-item>
       <ion-label fixed>TODO:</ion-label>
-      <ion-input type="text" value=""></ion-input>
+      <ion-input type="text" [(ngModel)]="itemText"></ion-input>
     </ion-item>
 
   </ion-list>
 
-  <button ion-button secondary full>Add</button>
+  <button ion-button secondary full (click)="addItem()">Add</button>
 
   <ion-list>
-    <ion-item>
+    <ion-item *ngFor="let t of todoData">
       <ion-icon name="leaf" item-left></ion-icon>
-      TODO Item
+      {{ t.text }}
     </ion-item>
   </ion-list>
 

@@ -14,12 +14,27 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 })
 export class TodoPage {
 
-  constructor(public navCtrl: NavController) {}
+  public itemText: string;
+  public table;
+  public todoData;
+
+  constructor(public navCtrl: NavController) {
+    var client = new WindowsAzure.MobileServiceClient('http://xmobile.azurewebsites.net');
+    this.table = client.getTable('todoitem');
+  }
 
   ionViewDidEnter() {
     console.log('Hello TodoPage Page');
+    this.table.read().done(
+      data => {
+        this.todoData = data;
+      },
+      err => console.log(err)
+    );
+  }
 
-    var client = new WindowsAzure.MobileServiceClient('http://xmobile.azurewebsites.net');
+  public addItem() {
+    this.table.insert({ text: this.itemText, complete: false });
   }
 
 }
