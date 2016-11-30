@@ -5,6 +5,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import { ListDataPage } from '../pages/list-data/list-data';
+import { TodoPage } from '../pages/todo/todo';
 
 
 @Component({
@@ -24,7 +25,8 @@ export class MyApp {
     this.pages = [
       { title: 'Page One', component: Page1 },
       { title: 'Page Two', component: Page2 },
-      { title: 'List Data', component: ListDataPage }
+      { title: 'List Data', component: ListDataPage },
+      { title: 'TODO', component: TodoPage }
     ];
 
   }
