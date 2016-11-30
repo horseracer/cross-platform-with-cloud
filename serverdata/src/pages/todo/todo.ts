@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import * as WindowsAzure from 'azure-mobile-apps-client';
 
 /*
   Generated class for the Todo page.
@@ -15,8 +16,10 @@ export class TodoPage {
 
   constructor(public navCtrl: NavController) {}
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     console.log('Hello TodoPage Page');
+
+    var client = new WindowsAzure.MobileServiceClient('http://xmobile.azurewebsites.net');
   }
 
 }
